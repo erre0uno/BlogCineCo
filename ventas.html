@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>My Blog Web</title>
+  <meta name="author" content="Nelson Andres Montealegre">
+  <meta name="description" content="Blog de tecnologias como HTML,CSS,JavaScript">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+
+  <link type="image/png" sizes="32x32" rel="icon" href="./img/icons8-super-mario-ios-16-32.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles_blog.css">
+  <link rel="stylesheet" href="css/page.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/904c4c8920.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body onload="loadAppVentas()">
+  <video id="videoBG" autoplay muted loop > 
+    <source src="img/cine1.mp4" type="video/mp4">
+  </video>
+
+  <nav class="navbar navbar-expand-sm  ">
+    <div class="container-fluid justify-content-center">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="navbar-brand" href="#">
+            <img src="./img/logo.png" alt="Logo" style="width:48px;height:45px;" class="rounded-pill">
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://getbootstrap.com/">Bootstrap</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="clientes.html">Clientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="ventas.html">Ventas</a>
+        </li>
+        <li>
+          <input id="login" type="button" value="login" class="nav-link" onclick="login()">
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <h3 id="titulo"> CineCo </h3>
+  </header>
+
+  <section class="container-center" id="padre" >
+
+    <div id="panelVentas">
+      <article class="post">
+        <div class="container mt-3" style="min-width: 350px;">
+          <h2>CRUD Ventas </h2>
+          <form action="/action_page.php" id="formVentas">
+            <div class="mb-3 mt-3">
+              <label for="idVenta">Id:</label>
+              <input type="text" class="form-control" id="idVenta" placeholder="id" name="idVenta" required>
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="fecha">Fecha:</label>
+              <input type="date" class="form-control" id="fecha" placeholder="fecha" name="fecha" required>
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="idCliente">Cliente:</label>
+              <select name="idCliente" class="form-select" id="idCliente" onchange="">
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="producto">Productos:</label>
+              <select name="producto" class="form-select" id="producto" onchange="CargarPrecio(this)">
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="valor">Valor:</label>
+              <input type="text" class="form-control" id="valor" placeholder="valor" value="10000" name="valor"
+                readonly>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="cantidad">Cantidad:</label>
+              <input type="number" class="form-control" id="cantidad" placeholder="cantidad" name="cantidad"
+                onchange="calcularPrecios()" required>
+            </div>
+            <div class="mb-3">
+              <label for="subTotal">SubTotal:</label>
+              <input type="text" class="form-control" id="subTotal" placeholder="subTotal" name="subTotal" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="total">Total:</label>
+              <input type="text" class="form-control" id="total" placeholder="total" name="total" readonly>
+            </div>
+            <div id="botones">
+              <button type="button" class="btn btn-success" onclick="crearVenta()">
+                <i class="fa-solid fa-plus"></i>Crear</button>
+              <button type="button" class="btn btn-warning" onclick="editarVentaById()">
+                <i class="fa-regular fa-pen-to-square"></i> &nbsp;Editar</button>
+              <button type="button" class="btn btn-info" onclick="mostrarVentaId()">
+                <i class="fa-solid fa-circle-info"></i> &nbsp; Buscar</button>
+              <button type="button" class="btn btn-danger" onclick="eliminarVentaById()">
+                <i class="fa-solid fa-trash-can"></i> &nbsp; Borrar</button>
+            </div>
+            <div class="d-grid">
+              <br>
+              <button type="button" class="btn btn-primary btn-block" onclick="calcularVentas()">Calcular
+                ventas</button>
+            </div>
+          </form>
+        </div>
+      </article>
+
+      <article class="post">
+        <h5>Lista Ventas</h5>
+        <hr>
+        <div id="lista">
+          <div class="container mt-3">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Fecha</th>
+                  <th>Id Cliente</th>
+                  <th>Producto</th>
+                  <th>Valor</th>
+                  <th>Cantidad</th>
+                  <th>SubTotal</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody id="tbodyVentas">
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="post casilla-total" id="casillaTotal">
+          <h2>Total Ventas $ <span id="totalVentas"> </span>  </h2>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <footer>
+    <section>
+      <a href="#titulo">Home</a>
+      <br>
+      <a href="mailto:nel.andres01@gmail.com">Enviame una Saludo</a>
+    </section>
+    <p>Copyright 2022</p>
+  </footer>
+
+  <script src="./js/ventas.js"></script>
+  <script src="./js/bypass.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</body>
+
+</html>

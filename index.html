@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>My Blog Web</title>
+  <meta name="author" content="Nelson Andres Montealegre">
+  <meta name="description" content="Blog de tecnologias como HTML,CSS,JavaScript">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+
+  <link type="image/png" sizes="32x32" rel="icon" href="./img/icons8-super-mario-ios-16-32.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles_blog.css">
+  <link rel="stylesheet" href="css/page.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/904c4c8920.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body onload="">
+  <video id="videoBG" autoplay muted loop>
+    <source src="img/cine1.mp4" type="video/mp4">
+  </video>
+  <nav class="navbar navbar-expand-sm  ">
+    <div class="container-fluid justify-content-center">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="navbar-brand" href="#">
+            <img src="./img/logo.png" alt="Logo" style="width:48px;height:45px;" class="rounded-pill">
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://getbootstrap.com/">Bootstrap</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="clientes.html">Clientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="ventas.html">Ventas</a>
+        </li>
+        <li>
+          <input id="login" type="button" value="login" class="nav-link" onclick="login()">
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <h3 id="titulo"> CineCo </h3>
+  </header>
+
+  <section class="container-center" id="padre">
+
+    <div id="panelClientes">
+      <section>
+        <div class="container">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h2 class="card-title">Clientes</h2>
+              <i class="fa-solid fa-users-gear"></i>
+              <div class="d-grid">
+                <a href="clientes.html">
+                  <button type="button" class="btn btn-primary btn-block">Gestionar Clientes</button>
+                </a>
+              </div>
+            </div>
+          </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="card iluminar2" style="width: 18rem;">
+            <div class="card-body">
+              <h2 class="card-title">Ventas</h2>
+              <i class="fa-brands fa-sellsy"></i>
+              <div class="d-grid">
+                <a href="ventas.html">
+                  <button type="button" class="btn btn-success btn-block">Gestionar Ventas</button>
+                </a>
+              </div>              
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+
+
+
+
+
+
+  </section>
+
+
+
+  <footer>
+    <section>
+      <a href="#titulo">Home</a>
+      <br>
+      <a href="mailto:nel.andres01@gmail.com">Enviame una Saludo</a>
+    </section>
+    <p>Copyright 2022</p>
+  </footer>
+
+  <script src="./js/clientes.js"></script>
+  <script src="./js/bypass.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</body>
+
+</html>
