@@ -35,11 +35,30 @@
 #videoBG{
     position:fixed;
     z-index: -1;
-    width: 100%;
-    height: auto;
 }
+@media (min-aspect-ratio:16/9){
+    #videoBG{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio:16/9){
+    #videoBG{
+        width: auto;
+        height: 100%;
+    }
+}
+
+@media (max-width: 767px){
+    doby{
+        background: url("poster.jpg");
+        background-size: cover;
+    }
+}
+
 .card-body i{
-    font-size: 10rem;
+    font-size: 5rem;
 }
 .card-body{
     display: flex;

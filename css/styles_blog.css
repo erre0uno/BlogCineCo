@@ -23,7 +23,7 @@ header {
 header h3 {
     text-align: center;
     font-family: 'Pacifico', cursive;
-    font-size: 60px;
+    font-size: 3rem;
 }
 /*
 .container-center {
@@ -65,7 +65,10 @@ section article h5 {
 /* ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Footer ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*/
 
 footer {
-    background-color: #3d3939;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #072cb1fe;
     padding: 1.5rem;
     color: white;
 }
