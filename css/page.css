@@ -63,7 +63,16 @@ margin: 0.2rem 0.2rem;
     #panelVentas{
         flex-direction: column;
     }
-
+    nav{
+        font-size: 1rem;
+        justify-items: center;
+        align-content: center;
+        text-align: center;
+    }
+    nav img{
+        display: none;
+    }
+    
 }
 
 .card-body i{
@@ -87,7 +96,7 @@ margin: 0.2rem 0.2rem;
 }
 nav{
     background-color: rgb(237, 230, 230);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 500;
 }
 nav{
