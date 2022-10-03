@@ -25,8 +25,11 @@
 }
 #botones{
     display: flex   ;
-    justify-content: space-evenly;
 }
+#botones button{
+margin: 0.2rem 0.2rem;
+}
+
 .casilla-total{
     text-align: center;
     display: none ;
@@ -51,10 +54,16 @@
 }
 
 @media (max-width: 767px){
-    doby{
-        background: url("poster.jpg");
+    #videoBG{
         background-size: cover;
     }
+    #panelClientes{
+        flex-direction: column;
+    }
+    #panelVentas{
+        flex-direction: column;
+    }
+
 }
 
 .card-body i{
@@ -74,11 +83,14 @@
     background-color: green;
 }
 .card{
-
     padding: 10px 20px;
 }
 .navbar{
     background-color: rgb(237, 230, 230);
     font-size: 20px;
     font-weight: 500;
+}
+nav{
+    width: 100%;
+
 }
