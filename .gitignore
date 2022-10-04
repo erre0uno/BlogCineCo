@@ -1,1 +1,3 @@
 img/pelicula.mp4
+# ignore ALL .mp4 files
+*.mp4
